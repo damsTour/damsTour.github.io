@@ -1,0 +1,93 @@
+<html>
+<head>
+</head>
+
+<body>
+<style>
+table.a {
+  border-style: double;
+  border-color: #023c78;
+  width: 230px;
+  font-family:"arial";
+  background-color: #023c78;
+  color: white;
+  text-align: center; 
+  vertical-align: middle;
+}
+
+</style>
+<div style="border: 3px solid rgb(201, 0, 1); overflow: hidden; margin: 35px auto; max-width: 245px;">
+<table id=table class=a>
+<tr>
+<th>11</th>
+<th>12</th>
+<th>13</th>
+<th>13</th>
+</tr>
+<tr>
+<td>21</td>
+<td>22</td>
+<td>23</td>
+<td>24</td>
+</tr>
+</tr>
+<tr>
+<td>31</td>
+<td>32</td>
+<td>33</td>
+<td>34</td>
+</tr>
+</tr>
+<tr>
+<td>41</td>
+<td>42</td>
+<td>43</td>
+<td>44</td>
+</tr>
+</tr>
+<tr>
+<td>51</td>
+<td>52</td>
+<td>53</td>
+<td>54</td>
+</tr>
+<tr>
+<td>61</td>
+<td>62</td>
+<td>63</td>
+<td>64</td>
+</tr>
+<tr>
+<td>71</td>
+<td>72</td>
+<td>73</td>
+<td>74</td>
+</tr>
+<tr>
+<td>81</td>
+<td>82</td>
+<td>83</td>
+<td>84</td>
+</tr>
+<tr>
+<td>91</td>
+<td>92</td>
+<td>93</td>
+<td>94</td>
+</tr>
+</table>
+<script>
+var golfers = [["PLACE", "PLAYER", "NET SCORE", "HOLE"], ["1", "Holtz", "-2", "9"], ["", "Schwartz", "-2", "10"], ["", "Wolf", "-2", "10"], ["4", "Fiascone", "-1", "8"], ["5", "McCalpin", "0", "8"], ["6", "Lyons", "3", "10"], ["7", "Lowery", "4", "10"], ["8", "Bryeans", "10", "10"]];
+    table = document.getElementById("table");
+//rows
+for (var i = 0; i < table.rows.length; i++)
+{
+   //cells
+    for (var j = 0; j < table.rows[i].cells.length; j++)
+    {
+        table.rows[i].cells[j].innerHTML = golfers[i] [j];
+    }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,413 @@
+<html>
+<head>
+<style>
+table.a {
+  border-style: double;
+  border-color: white;
+  width: 800px;
+  font-family:"arial";
+  font-size:14px;
+  background-color: #023c78;
+  color: white;
+  text-align: center; 
+  vertical-align: middle;
+}
+td.scoreGross
+	{
+	font-size:35px;
+        font-family:"arial";
+        font-weight: bold;
+	color:#023c78;
+	background-color:white;
+        text-align: center; 
+        vertical-align: middle;
+        padding-right: 7px
+	padding-left: 7px
+	}
+td.scoreEntry
+	{
+	font-size:25px;
+        font-family:"arial";
+	color:#023c78;
+	background-color:white;
+        text-align: center; 
+        vertical-align: middle;
+	}
+td.shiftRight
+	{
+  text-align: right; 
+	}
+td.spacingOutin
+	{
+  text-align: top; 
+  border-color: white;
+  border-bottom: 10px;
+  padding-bottom: 25px
+	}
+td.blankLast
+	{
+  color: #023c78;
+	}
+</style>
+</head>
+<body bgcolor="#023C78">
+<!-- *Below is Banner Code -->
+<table>
+<tr>
+<td><a href="index.html"> <img border="0" src="DAMS2020LOGO.png"></td> 
+<td><a href="ScoreCards.html"> <img border="0" src="ScoreCards.png"></td> 
+<td><a href="ScoreEntry.html"> <img border="0" src="ScoreEntry.png"></td> 
+<td><a href="Schedule.html"> <img border="0" src="Schedule.png"></td> 
+<td><a href="Leaderboard.html"> <img border="0" src="Leaderboard.png"></td> 
+<td><a href="Statistics.html"> <img border="0" src="Statistics.png"></td> 
+<td><a href="Earnings.html"> <img border="0" src="Earnings.png"></td> 
+</tr>
+</table>
+<html>
+<head>
+<style>
+table.a {
+  border-style: double;
+  border-color: white;
+  width: 800px;
+  font-family:"arial";
+  font-size:14px;
+  background-color: #023c78;
+  color: white;
+  text-align: center; 
+  vertical-align: middle;
+}
+td.scoreGross
+	{
+	font-size:35px;
+        font-family:"arial";
+        font-weight: bold;
+	color:#023c78;
+	background-color:white;
+        text-align: center; 
+        vertical-align: middle;
+        padding-right: 7px
+	padding-left: 7px
+	}
+td.scoreEntry
+	{
+	font-size:25px;
+        font-family:"arial";
+	color:#023c78;
+	background-color:white;
+        text-align: center; 
+        vertical-align: middle;
+	}
+td.shiftRight
+	{
+  text-align: right; 
+	}
+td.spacingOutin
+	{
+  text-align: top; 
+  border-color: white;
+  border-bottom: 10px;
+  padding-bottom: 25px
+	}
+td.blankLast
+	{
+  color: #023c78;
+	}
+</style>
+</head>
+<body>
+
+<div style="overflow: hidden; margin: 35px auto; max-width: 800px;">
+
+<select name="formal" onchange="javascript:handleSelect(this)">
+<option value="Player1">Select A Player</option>
+<option value="Player1">Bryeans</option>
+<option value="Player2">Fiascone</option>
+<option value="Player3">Holtz</option>
+<option value="Player4">Lowery</option>
+<option value="Player5">Lyons</option>
+<option value="Player6">McCalpin</option>
+<option value="Player7">Schwartz</option>
+<option value="Player8">Wolf</option>
+</select>
+</div>
+	
+<div style="border: 3px solid rgb(201, 0, 1); overflow: hidden; margin: 35px auto; max-width: 800px;">
+
+<table id=table1 class=a>
+<tr>
+<style> bordercolor="white" </style>
+<td class=scoreGross>H1</td>
+<th>H2</th>
+<th>H3</th>
+<th>H4</th>
+<td class=shiftRight>H5</td>
+<th>H6</th>
+<td>H7</td>
+<td class=scoreGross>H8</td>
+<td class=shiftRight>H9</td>
+<th>H10</th>
+<td class=scoreGross>H11</td>
+</tr>
+</table>
+<table id=table class=a> 
+<tr>
+<th>H1</th>
+<th>H2</th>
+<th>H3</th>
+<th>H4</th>
+<th>H5</th>
+<th>H6</th>
+<th>H7</th>
+<th>H8</th>
+<th>H9</th>
+<th>H10</th>
+<th>H11</th>
+</tr>
+<tr>
+<td>21</td>
+<td>22</td>
+<td>23</td>
+<td>24</td>
+<td>21</td>
+<td>22</td>
+<td>23</td>
+<td>24</td>
+<td>21</td>
+<td>22</td>
+<td>22</td>
+</tr>
+</tr>
+<tr>
+<td class=scoreEntry> 31</td>
+<td class=scoreEntry> 32</td>
+<td class=scoreEntry>33</td>
+<td class=scoreEntry>34</td>
+<td class=scoreEntry>21</td>
+<td class=scoreEntry>22</td>
+<td class=scoreEntry>23</td>
+<td class=scoreEntry>24</td>
+<td class=scoreEntry>21</td>
+<td class=scoreEntry>22</td>
+<td class=scoreEntry>22</td>
+</tr>
+</tr>
+<tr>
+<td>41</td>
+<td>42</td>
+<td>43</td>
+<td>44</td>
+<td>21</td>
+<td>22</td>
+<td>23</td>
+<td>24</td>
+<td>21</td>
+<td>22</td>
+<td class=blankLast>22</td>
+</tr>
+</tr>
+<tr>
+<td class=spacingOutin>51</td>
+<td class=spacingOutin>52</td>
+<td class=spacingOutin>53</td>
+<td class=spacingOutin>54</td>
+<td class=spacingOutin>21</td>
+<td class=spacingOutin>22</td>
+<td class=spacingOutin>23</td>
+<td class=spacingOutin>24</td>
+<td class=spacingOutin>21</td>
+<td class=spacingOutin>22</td>
+<td class=spacingOutin>22</td>
+</tr>
+<tr>
+<th>61</th>
+<th>62</th>
+<th>63</th>
+<th>64</th>
+<th>21</th>
+<th>22</th>
+<th>23</th>
+<th>24</th>
+<th>21</th>
+<th>22</th>
+<th>22</th>
+</tr>
+<tr>
+<td>71</td>
+<td>72</td>
+<td>73</td>
+<td>74</td>
+<td>21</td>
+<td>22</td>
+<td>23</td>
+<td>24</td>
+<td>21</td>
+<td>22</td>
+<td>22</td>
+</tr>
+<tr>
+<td class=scoreEntry>81</td>
+<td class=scoreEntry>82</td>
+<td class=scoreEntry>83</td>
+<td class=scoreEntry>84</td>
+<td class=scoreEntry>21</td>
+<td class=scoreEntry>22</td>
+<td class=scoreEntry>23</td>
+<td class=scoreEntry>24</td>
+<td class=scoreEntry>21</td>
+<td class=scoreEntry>22</td>
+<td class=scoreEntry>22</td>
+</tr>
+<tr>
+<td>91</td>
+<td>92</td>
+<td>93</td>
+<td>94</td>
+<td>21</td>
+<td>22</td>
+<td>23</td>
+<td>24</td>
+<td>21</td>
+<td>22</td>
+<td class=blankLast>22</td>
+</tr>
+<td>101</td>
+<td>102</td>
+<td>103</td>
+<td>104</td>
+<td>101</td>
+<td>102</td>
+<td>103</td>
+<td>104</td>
+<td>101</td>
+<td>102</td>
+<td>102</td>
+</tr>
+</table>
+    <!--
+    BEFORE RUNNING:
+    ---------------
+    1. If not already done, enable the Google Sheets API
+       and check the quota for your project at
+       https://console.developers.google.com/apis/api/sheets
+    2. Get access keys for your application. See
+       https://developers.google.com/api-client-library/javascript/start/start-js#get-access-keys-for-your-application
+    3. For additional information on authentication, see
+       https://developers.google.com/sheets/api/quickstart/js#step_2_set_up_the_sample
+    -->
+    <script>
+    function makeApiCall(query) {
+    range = query
+    var params = {
+        // The ID of the spreadsheet to retrieve data from.
+        spreadsheetId: '11sgLVqsMiHLXE61TU6iLbGDh7IPUWuOJE3shXQARshQ',  // TODO: Update placeholder value.
+        // The A1 notation of the values to retrieve.
+       range :  range,  // TODO: Update placeholder value.
+        // How values should be represented in the output.
+        // The default render option is ValueRenderOption.FORMATTED_VALUE.
+        // valueRenderOption: '',  // TODO: Update placeholder value.
+        // How dates, times, and durations should be represented in the output.
+        // This is ignored if value_render_option is
+        // FORMATTED_VALUE.
+        // The default dateTime render option is [DateTimeRenderOption.SERIAL_NUMBER].
+        // dateTimeRenderOption: '',  // TODO: Update placeholder value.
+      };
+      var request = gapi.client.sheets.spreadsheets.values.get(params);
+      request.then(function(response) {
+        // TODO: Change code below to process the `response` object:
+        console.log(response.result);
+        var golfers =  response.result.values;
+scoreCardHeader(response.result);
+scoreDetail(response.result)
+      }, function(reason) {
+        console.error('error: ' + reason.result.error.message);
+      });
+    }
+    function initClient() {
+      var API_KEY = 'AIzaSyAWZlLZeGhEGjiVx29SH4wJpL9qZoiBRf0';  // TODO: Update placeholder with desired API key.
+      var CLIENT_ID = '793345397839-4olt83gj97quejg755ths4i7ft5gmgvn.apps.googleusercontent.com';  // TODO: Update placeholder with desired client ID.
+      // TODO: Authorize using one of the following scopes:
+      //   'https://www.googleapis.com/auth/drive'
+      //   'https://www.googleapis.com/auth/drive.file'
+      //   'https://www.googleapis.com/auth/drive.readonly'
+      //   'https://www.googleapis.com/auth/spreadsheets'
+      //   'https://www.googleapis.com/auth/spreadsheets.readonly'
+      var SCOPE = 'https://www.googleapis.com/auth/spreadsheets.readonly';
+      gapi.client.init({
+        'apiKey': API_KEY,
+        'clientId': CLIENT_ID,
+        'scope': SCOPE,
+        'discoveryDocs': ['https://sheets.googleapis.com/$discovery/rest?version=v4'],
+      }).then(function() {
+        gapi.auth2.getAuthInstance().isSignedIn.listen(updateSignInStatus);
+        updateSignInStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+      });
+    }
+    function handleClientLoad() {
+      gapi.load('client:auth2', initClient);
+    }
+    function updateSignInStatus(isSignedIn) {
+     var query = 'Player5!B59:L69'
+     if (isSignedIn) {
+        makeApiCall(query);
+      }
+    }
+    function handleSignInClick(event) {
+      gapi.auth2.getAuthInstance().signIn();
+    }
+    function handleSignOutClick(event) {
+      gapi.auth2.getAuthInstance().signOut();
+    }
+    </script>
+    <script async defer src="https://apis.google.com/js/api.js"
+      onload="this.onload=function(){};handleClientLoad()"
+      onreadystatechange="if (this.readyState === 'complete') this.onload()">
+    </script>
+<script type="text/javascript">
+function handleSelect(player)
+{
+query = player.value+"!B59:L69";
+makeApiCall(query)
+}
+</script>  
+<script>
+function scoreCardHeader(result)
+{
+var golfers = result.values;
+document.getElementById("table1");
+//rows
+for (var i = 0; i < table1.rows.length; i++)
+{
+   //cells
+    for (var j = 0; j < table1.rows[i].cells.length; j++)
+    {
+        table1.rows[i].cells[j].innerHTML = golfers[i] [j];
+    }
+}
+}
+</script>
+  
+<script>
+function scoreDetail(result)
+{
+var golfers = result.values;
+    table = document.getElementById("table");
+//rows
+for (var i = 0; i < table.rows.length; i++)
+{
+   //cells
+    for (var j = 0; j < table.rows[i].cells.length; j++)
+    {
+        table.rows[i].cells[j].innerHTML = golfers[i+1] [j];
+    }
+}
+}
+</script>
+	</div>
+<div style="overflow: hidden; margin: 35px auto; max-width: 800px;">
+    <button id="signin-button" onclick="handleSignInClick()">Sign in</button>
+    <button id="signout-button" onclick="handleSignOutClick()">Sign out</button>
+</div>
+<!-- ****Below is the Footer Code -->
+</body>
+</html>

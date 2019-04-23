@@ -1,0 +1,39 @@
+<html>
+<body>
+<div style="border: 3px solid rgb(201, 0, 1); overflow: hidden; margin: 15px auto; max-width: 500px;">
+<table>
+<tr>
+<td bgcolor="#023C78"" height="80" width="600"> </td>
+</tr>
+<tr>
+<td bgcolor="white" height="30" width="600"> 
+
+<select name="formal" onchange="javascript:handleSelect(this)">
+  <option value=""></option>
+  <option value="Bryeans">Bryeans</option>
+  <option value="banner.html">Fiascone</option>
+  <option value="Holtz">Holtz</option>
+  <option value="Lowery">Lowery</option>
+  <option value="Lyons">Lyons</option>
+  <option value="McCalpin">McCalpin</option>
+  <option value="Schwartz">Schwartz</option>
+  <option value="Wolfe">Schwartz</option>
+  <option value="banner">Banner</option>
+  <option value="helloworld">Helloworld</option>
+</select>
+
+<script type="text/javascript">
+function handleSelect(player)
+{
+window.location = player.value+".html";
+}
+</script>
+
+</td>
+</tr>
+<tr>
+<td bgcolor="#023C78"" height="10" width="600"> 3 </td>
+</tr>
+</table>
+</body>
+</html>
