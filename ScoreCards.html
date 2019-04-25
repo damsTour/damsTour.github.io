@@ -1,6 +1,17 @@
 <html>
 <head>
 <style>
+h1 {
+  border-style: double;
+  border-color: white;
+  width: 790px;
+  font-family:"arial";
+  font-size:35px;
+  background-color: #023c78;
+  color: white;
+  text-align: center; 
+  vertical-align: middle;
+}
 table.a {
   border-style: double;
   border-color: white;
@@ -132,8 +143,9 @@ td.blankLast
 </select>
 </div>
 	
-<div style="border: 3px solid rgb(201, 0, 1); overflow: hidden; margin: 35px auto; max-width: 800px;">
-
+<div style="border: 3px solid rgb(201, 0, 1); overflow: hidden; margin: 0px auto; max-width: 800px;">
+<h1> OFFICIAL DAMS SCORECARD </h1>
+	<!--<img border="0" src="DuckPicture.png" align="bottom" width=12%>-->
 <table id=table1 class=a>
 <tr>
 <style> bordercolor="white" </style>
@@ -382,6 +394,21 @@ for (var i = 0; i < table1.rows.length; i++)
     for (var j = 0; j < table1.rows[i].cells.length; j++)
     {
         table1.rows[i].cells[j].innerHTML = golfers[i] [j];
+
+hold=golfers[i] [j];
+if (i==0) 
+ {
+    if (j==7 || j == 9) 
+     { if (hold>0)
+           {
+                  table1.rows[i].cells[j].innerHTML = "+"+golfers[i] [j];
+        }
+       if (hold==0)
+           {
+                  table1.rows[i].cells[j].innerHTML = "E";
+        }
+      }
+  }
     }
 }
 }

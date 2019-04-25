@@ -1,0 +1,158 @@
+<div class="top-nav-wrapper">
+  <nav class="top-nav"> <!-- make a partial -->
+    <a href="index.html"><span class="back"><i class="icon-chevron-left"></i> Back </span></a><h1>DAMS SCORECARD ENTRY</h1>
+  </nav>
+</div>
+<div class="main-content-wrapper">
+  <ul class="iphone-list">
+    <li class="only-item iphone-list-item">
+        <i class="icon-flag"></i>
+        Torrey Pines
+        <ul class="stats">
+          <li>May 15th, 2019 San Diego, CA Course Par 72</li>
+         </ul>
+    </li>
+    <li class="score">More Data<span>+3</span>
+    </li>
+  </ul>
+  <h2 id="demo"> </h2>
+ <form action="action_page.php">
+ <fieldset style="width:400px">
+ <table width=400px >
+  <tr>
+   <td width=132px> Score </td>
+   <td width=68px> Silver<br>Snake </td>
+   <td width=68px> Pledge<br>Pat</td>   
+   <td width=68px> Mons<br>Venus</td>
+   </tr>
+    <tr> 
+       <td width=132>
+  <label for="Score1" id="golFer1"></label>
+  <select name="Score1">
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option selected value="5">5</option>
+  <option value="6">6</option>
+  <option value="7">7</option>
+  <option value="8">8</option>
+  <option value="9">9</option>
+  <option value="10">10</option>
+  </select> 
+       </td>
+       <td>
+  <input type="checkbox" style="width: 68px;" name="snake1" value=1>
+       </td>
+       <td>
+  <input type="checkbox" style="width: 68px;" name="pledge1" value=1>
+       </td>
+       <td>             
+  <input type="checkbox" style="width: 68px;" name="mons1" value=1>
+       </td>
+       <br><br>
+     </tr>
+   <tr>
+  <td width=132><label for="Score2" id="golFer2"></label>
+  <select name="Score2">
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option selected value="5">5</option>
+  <option value="6">6</option>
+  <option value="7">7</option>
+  <option value="8">8</option>
+  <option value="9">9</option>
+  <option value="10">10</option>
+  </select> 
+     </td>
+     <td>
+  <input type="checkbox" style="width: 68px;" name="snake2" value=1>
+       </td>
+     <td>
+  <input type="checkbox" style="width: 68px;" name="pledge2" value=1>
+     </td>
+     <td>
+  <input type="checkbox" style="width: 68px;" name="mons2" value=1>
+     </td>
+   </tr>
+   <tr>
+    <td>
+  <label for="Score3" id="golFer3"></label>
+  <select name="Score3">
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option selected value="5">5</option>
+  <option value="6">6</option>
+  <option value="7">7</option>
+  <option value="8">8</option>
+  <option value="9">9</option>
+  <option value="10">10</option>
+  </select> 
+     </td>
+     <td>
+  <input type="checkbox" style="width: 68px;" name="snake3" value=1>
+     </td>
+     <td>
+  <input type="checkbox" style="width: 68px;" name="pledge3" value=1>
+     </td>
+     <td>
+  <input type="checkbox" style="width: 68px;" name="mons3" value=1>
+     </td>
+    </tr>
+   <tr>
+     <td>
+  <label for="Score4" id="golFer4"></label>
+  <select name="Score4">
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option selected value="5">5</option>
+  <option value="6">6</option>
+  <option value="7">7</option>
+  <option value="8">8</option>
+  <option value="9">9</option>
+  <option value="10">10</option>
+  </select>
+     </td>
+     <td>
+  <input type="checkbox" style="width: 68px;" name="snake4" value=1>
+     </td>
+     <td>
+  <input type="checkbox" style="width: 68px;" name="pledge4" value=1>
+     </td>
+     <td>
+  <input type="checkbox" style="width: 68px;" name="mons4" value=1>
+     </td>
+   </tr>
+   </table>
+   <br><br>
+  <input type="submit" value="Submit">
+   </fieldset>
+  </form>
+  </div> 
+<p id="demo"> printing 3 </p>  
+ <script> 
+ var firstHole="Hole 19";
+ document.getElementById("demo").innerHTML = firstHole;
+  </script> 
+<script>
+var golfPlayer1 = "Patr";
+document.getElementById('golFer1').innerHTML = golfPlayer1;
+</script>
+<script>
+var golfPlayer2 = "Scot";
+document.getElementById('golFer2').innerHTML = golfPlayer2;
+</script>
+<script>
+var golfPlayer3 = "Matt";
+document.getElementById('golFer3').innerHTML = golfPlayer3;
+</script>
+<script>
+var golfPlayer4 = "Greg";
+document.getElementById('golFer4').innerHTML = golfPlayer4;
+</script>

@@ -4,7 +4,6 @@
   <!-- *Below is Banner Code -->
 </head>
 <script>
- initClient();
  makeApiCall();
 </script>
   <body bgcolor="#023C78">
@@ -39,7 +38,7 @@
         // The ID of the spreadsheet to retrieve data from.
         spreadsheetId: '11sgLVqsMiHLXE61TU6iLbGDh7IPUWuOJE3shXQARshQ',  // TODO: Update placeholder value.
         // The A1 notation of the values to retrieve.
-        range: 'PenaltiesContest!B19:G27',  // TODO: Update placeholder value.
+        range: 'PenaltiesContest!B19:H27',  // TODO: Update placeholder value.
         // How values should be represented in the output.
         // The default render option is ValueRenderOption.FORMATTED_VALUE.
         // valueRenderOption: '',  // TODO: Update placeholder value.
@@ -195,57 +194,48 @@ table.a {
 <th>1</th>
 <th>2</th>
 <th>3</th>
-<th>4</th>
 </tr>
 <tr>
 <td>21</td>
 <td>22</td>
 <td>23</td>
-<td>24</td>
 </tr>
 </tr>
 <tr>
 <td>31</td>
 <td>32</td>
 <td>33</td>
-<td>34</td>
 </tr>
 </tr>
 <tr>
 <td>41</td>
 <td>42</td>
 <td>43</td>
-<td>44</td>
 </tr>
 <tr>
 <td>51</td>
 <td>52</td>
 <td>53</td>
-<td>54</td>
 </tr>
 <tr>
 <td>61</td>
 <td>62</td>
 <td>63</td>
-<td>64</td>
 </tr>
 <tr>
 <td>71</td>
 <td>72</td>
 <td>73</td>
-<td>74</td>
 </tr>
 <tr>
 <td>81</td>
 <td>82</td>
 <td>83</td>
-<td>84</td>
 </tr>
 <tr>
 <td>91</td>
 <td>92</td>
 <td>93</td>
-<td>94</td>
 </tr>
 </tr>
 </table>
@@ -281,8 +271,8 @@ for (var i = 0; i < tablegross.rows.length; i++)
 </script>
 </div>
 <div style=" overflow: hidden; margin: 35px auto; max-width: 600px;">
-    <button id="signin-button" onclick="handleSignInClick()">Update Stats</button>
-    <button id="signout-button" onclick="handleSignOutClick()">Sign out</button>
+    <button id="signin-button" onclick="handleSignInClick()">Sign In</button>
+    <button id="signout-button" onclick="handleSignOutClick()">Sign Out</button>
 </div>
 <!-- ****Above is the Entry Form -->
 

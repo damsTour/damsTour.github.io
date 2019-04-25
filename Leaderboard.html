@@ -3,9 +3,6 @@
   <link rel="stylesheet" type="text/css" href="myStyle.css">
   <!-- *Below is Banner Code -->
 </head>
-<script>
- makeApiCall();
-</script>
   <body bgcolor="#023C78">
    <table>
 <tr>
@@ -38,7 +35,7 @@
         // The ID of the spreadsheet to retrieve data from.
         spreadsheetId: '11sgLVqsMiHLXE61TU6iLbGDh7IPUWuOJE3shXQARshQ',  // TODO: Update placeholder value.
         // The A1 notation of the values to retrieve.
-        range: 'Leaderboard!C13:K21',  // TODO: Update placeholder value.
+        range: 'Leaderboard!C13:M21',  // TODO: Update placeholder value.
         // How values should be represented in the output.
         // The default render option is ValueRenderOption.FORMATTED_VALUE.
         // valueRenderOption: '',  // TODO: Update placeholder value.
@@ -53,7 +50,8 @@
         // TODO: Change code below to process the `response` object:
         console.log(response.result);
         populateNet(response.result);
-        populateGross(response.result);
+              populateMatches(response.result);
+populateGross(response.result);
        }, function(reason) {
         console.error('error: ' + reason.result.error.message);
       });
@@ -184,6 +182,56 @@ table.a {
 <table class=a>
 <tr>
 <td class=scoreEntry>
+  TWOSOME AND FOURSOME MATCHES 
+</td>
+</tr>
+</table>
+<table id=tablematches class=a>
+<tr>
+<th>1</th>
+<th>2</th>
+</tr>
+<tr>
+<td>21</td>
+<td>22</td>
+</tr>
+</tr>
+<tr>
+<td class=matchesDivider>31</td>
+<td class=matchesDivider>32</td>
+</tr>
+</tr>
+<tr>
+<th>41</th>
+<th>42</th>
+</tr>
+<tr>
+<td>51</td>
+<td>52</td>
+</tr>
+<tr>
+<td class=matchesDivider>61</td>
+<td class=matchesDivider>62</td>
+</tr>
+<tr>
+<th>71</th>
+<th>72</th>
+</tr>
+<tr>
+<td>81</td>
+<td>82</td>
+</tr>
+<tr>
+<td>91</td>
+<td>92</td>
+</tr>
+</tr>
+</table>
+<br>
+<br>
+<table class=a>
+<tr>
+<td class=scoreEntry>
   2020 GHETTO (GROSS) STANDINGS
 </td>
 </tr>
@@ -249,7 +297,8 @@ table.a {
 </tr>
 </table>
 <script>
-function populateNet(result) {
+function populateNet(result) 
+{
 var golfers = result.values;
     table = document.getElementById("table");
 //rows
@@ -259,6 +308,22 @@ for (var i = 0; i < table.rows.length; i++)
     for (var j = 0; j < table.rows[i].cells.length; j++)
     {
         table.rows[i].cells[j].innerHTML = golfers[i] [j];
+hold=golfers[i] [j];
+if (i>0) 
+ {
+    if (j==2) 
+     {
+       if (hold>0)
+           {
+                  table.rows[i].cells[j].innerHTML = "+"+golfers[i] [j];
+        }
+       if (hold==0)
+           {
+                  table.rows[i].cells[j].innerHTML = "E";
+        }
+      }
+  }
+      
     }
 }
 }
@@ -274,6 +339,30 @@ for (var i = 0; i < tablegross.rows.length; i++)
     for (var j = 0; j < tablegross.rows[i].cells.length; j++)
     {
         tablegross.rows[i].cells[j].innerHTML = golfers[i] [j+4];
+var z=j+4;
+    hold=golfers[i] [j+4];
+if (i>0) {if (z==6){ if (hold>0)
+{tablegross.rows[i].cells[j].innerHTML = "+"+golfers[i] [j+4];
+      if (hold==0)
+           {
+                  tablegross.rows[i].cells[j].innerHTML = "E";
+        }
+}}} 
+    }
+}
+}
+</script>
+<script>
+function populateMatches(result) {
+var golfers = result.values;
+    tablematches = document.getElementById("tablematches");
+//rows
+for (var i = 0; i < tablematches.rows.length; i++)
+{
+   //cells
+    for (var j = 0; j < tablematches.rows[i].cells.length; j++)
+    {
+        tablematches.rows[i].cells[j].innerHTML = golfers[i] [j+9];
     }
 }
 }
@@ -283,11 +372,11 @@ for (var i = 0; i < tablegross.rows.length; i++)
     <button id="signin-button" onclick="handleSignInClick()">Sign in</button>
     <button id="signout-button" onclick="handleSignOutClick()">Sign out</button>
 </div>
-<!-- ****Above is the Entry Form -->
+<!-- ****Above is the Leaderboard -->
 
 <!-- ****Below is the Footer Code -->
 <table>
 </table>
-<!-- ****Below is the Footer Code -->
-   </body>
+<!-- ****Above is the Footer Code -->
+</body>
 </html>
