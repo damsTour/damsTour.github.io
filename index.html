@@ -1,43 +1,92 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <title>DAMS</title>
+
+  <!-- iPhone Home Screen -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="DAMS" />
+
+  <link rel="stylesheet" href="menu.css" />
+
+  <style>
+    :root {
+      --sapphire: #0f2a44;
+      --old-gold: #cfa23f;
+      --white: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      background: var(--sapphire);
+      color: var(--old-gold);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .home-container {
+      text-align: center;
+      padding: 24px;
+    }
+
+    .duck {
+      max-width: 260px;
+      width: 70vw;
+      height: auto;
+      margin-bottom: 20px;
+    }
+
+    .title {
+      font-size: clamp(48px, 12vw, 96px);
+      font-weight: 800;
+      letter-spacing: 2px;
+      margin: 0;
+    }
+
+    .subtitle {
+      margin-top: 12px;
+      font-size: 16px;
+      letter-spacing: 1px;
+      opacity: 0.9;
+    }
+
+      .since {
+       font-family: "Georgia", serif;
+       font-style: italic;
+    }
+  </style>
 </head>
-   <body bgcolor="#023C78">
-<!-- *Below is Banner Code -->
-   <table>
-<tr>
-<td><a href="index.html"> <img border="0" src="DAMS2020LOGO.png"></td>
-<td><a href="ScoreCards.html"> <img border="0" src="ScoreCards.png"></td> 
-<td><a href="ScoreEntry.html"> <img border="0" src="ScoreEntry.png"></td> 
-<td><a href="Schedule.html"> <img border="0" src="Schedule.png"></td> 
-<td><a href="Leaderboard.html"> <img border="0" src="Leaderboard.png"></td> 
-<td><a href="Statistics.html"> <img border="0" src="Statistics.png"></td> 
-<td><a href="Earnings.html"> <img border="0" src="Earnings.png"></td> 
-</tr>
-</table>
-<!-- *Above is Banner Code -->
 
-<!-- *Below is the Entry Form -->
-<table>
-<tr>
-<td>
-<picture style=text-align:center">
-    <source srcset="DuckPicture.png"
-            media="(max-width: 250px)">
-    <img src="DuckPicture.png" />
-</picture>
-<!-- ****Above is the Entry Form -->
+<body>
 
-<!-- ****Below is the Footer Code -->
-</td>
-<td>
-</td>
-</tr>
-</table>
-<table>
-<tr>
-<td></td>
-</tr>
-</table>
-<!-- ****Below is the Footer Code -->
-   </body>
+  <!-- MENU BUTTON -->
+  <div class="menu-button" onclick="toggleMenu()">☰</div>
+
+  <!-- SLIDE MENU -->
+  <div id="menu" class="menu">
+    <a href="index.html">Home</a>
+    <a href="ScoreEntry.html">Score Entry</a>
+    <a href="ScoreCards.html">Score Cards</a>
+    <a href="Schedule.html">Schedule</a>
+    <a href="Leaderboard.html">Leaderboard</a>
+    <a href="Statistics.html">Statistics</a>
+    <a href="Earnings.html">Earnings</a>
+  </div>
+
+  <!-- HERO -->
+  <div class="home-container">
+    <img src="images/duck.png" alt="DAMS Duck" class="duck" />
+    <h1 class="title">DAMS</h1>
+    <div class="subtitle">Ducks Annual Migration South</div>
+    <div class="since">Since 1998</div>
+  </div>
+
+  <script src="menu.js"></script>
+</body>
 </html>

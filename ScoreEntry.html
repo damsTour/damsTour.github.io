@@ -1,35 +1,334 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <title>DAMS – Score Entry</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- iPhone Home Screen -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="DAMS" />
+  <link rel="stylesheet" href="menu.css" />
+
+<style>
+:root {
+  --sapphire-dark: #0f2a44;   /* True DU */
+  --sapphire: #1f4e79;        /* UI text */
+  --old-gold: #c99700;
+}
+    /* MENU BUTTON (3 dots / hamburger) */
+.menu-button {
+  position: fixed;
+  top: 14px;
+  right: 16px;
+  font-size: 26px;
+  cursor: pointer;
+  color: #cfa64a;
+  z-index: 1001;
+}
+
+/* SLIDE-OUT MENU */
+.menu {
+  position: fixed;
+  top: 0;
+  right: -220px;           /* hidden off screen */
+  width: 220px;
+  height: 100%;
+  background: #0f2a44;
+  padding-top: 60px;
+  transition: right 0.3s ease;
+  z-index: 1000;
+}
+
+/* SHOW MENU */
+.menu.show {
+  right: 0;
+}
+
+/* MENU LINKS */
+.menu a {
+  display: block;
+  padding: 12px 16px;
+  color: #cfa64a;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.menu a:hover {
+  background: rgba(255,255,255,0.1);
+}
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 12px;
+  background: #f5f5f5;
+  color: var(--sapphire);
+}
+
+/* ---------- HEADER ---------- */
+header {
+      background: #0f2a44; /* Sapphire */
+      color: #cfa64a;      /* Old Gold */
+      padding: 12px 16px;
+      font-size: 20px;
+    }
+
+/* ---------- HOLE NAV ---------- */
+.hole-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+.hole-nav span {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* ---------- CARDS ---------- */
+.card {
+  background: white;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 4px rgba(0,0,0,.15);
+}
+.card h3 {
+  margin: 0 0 6px 0;
+}
+.row {
+  display: flex;
+  gap: 6px;
+}
+.row input {
+  flex: 1;
+  padding: 8px;
+  font-size: 16px;
+}
+.player-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.player-name {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.score-input {
+  width: 60px;
+  text-align: center;
+  font-size: 18px;
+  padding: 6px;
+}
+
+.contest-row {
+  margin-top: 6px;
+  font-size: 14px;
+}
+
+/* ---------- BUTTON ---------- */
+button {
+  width: 100%;
+  padding: 14px;
+  font-size: 18px;
+  background: var(--old-gold);
+  color: #222;
+  border: none;
+  border-radius: 8px;
+  margin-top: 10px;
+  font-weight: bold;
+}
+/* =========================
+   FORCE DU SAPPHIRE TEXT
+   ========================= */
+
+/* h1, h2, h3, h4, h5, h6,
+label,
+.card h3,
+.hole-nav,
+.menu a,
+input,
+select,
+option,
+button {
+  color: var(--old-gold);
+} */
+
+/* Inputs need this explicitly */
+input {
+  color: var(--sapphire);
+  caret-color: var(--sapphire);
+}
+
+/* Placeholder text */
+input::placeholder {
+  color: rgba(15, 42, 68, 0.6);
+}
+.hole-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.arrow {
+  font-size: 24px;        /* thicker + taller */
+  font-weight: 700;
+  cursor: pointer;
+  padding: 4px 6px;
+  user-select: none;
+  color: var(--sapphire);
+}
+
+.hole-label {
+  font-size: 21px;
+  font-weight: 600;
+}
+
+.top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 0 0 6px 0;
+}
+
+
+#courseHeader {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--sapphire);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+#groupSelect {
+  font-size: 15px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--old-gold);
+  border: 1px solid rgba(255,255,255,0.35);
+}
+
+
+.toast {
+  position: fixed;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #0f2a44;        /* sapphire */
+  color: #cfa64a;             /* old gold */
+  padding: 10px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+  z-index: 2000;
+}
+
+.toast.show {
+  opacity: 1;
+}
+
+/* ---------- CONTROL BAR (SAPPHIRE) ---------- */
+.control-bar {
+  background: var(--sapphire-dark);
+  padding: 8px 12px 10px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+  border-radius: 0 0 10px 10px;
+}
+
+.control-bar #courseHeader {
+  color: #ffffff;
+}
+
+}
+#groupSelect {
+  background: transparent;
+  color: var(--old-gold);
+  border: 1px solid rgba(255,255,255,0.35);
+}
+
+#groupSelect option {
+  color: var(--sapphire);   /* dropdown list stays readable */
+}
+.arrow {
+  font-size: 26px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 4px 10px;
+  user-select: none;
+  color: var(--old-gold);
+}
+.arrow:active {
+  transform: scale(0.92);
+}
+.hole-label {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--old-gold);
+}
+
+</style>
 </head>
-   <body bgcolor="#023C78">
-<!-- *Below is Banner Code -->
-   <table>
-<tr>
-<td><a href="index.html"> <img border="0" src="DAMS2020LOGO.png"></td> 
-<td><a href="ScoreCards.html"> <img border="0" src="ScoreCards.png"></td> 
-<td><a href="ScoreEntry.html"> <img border="0" src="ScoreEntry.png"></td> 
-<td><a href="Schedule.html"> <img border="0" src="Schedule.png"></td> 
-<td><a href="Leaderboard.html"> <img border="0" src="Leaderboard.png"></td> 
-<td><a href="Statistics.html"> <img border="0" src="Statistics.png"></td> 
-<td><a href="Earnings.html"> <img border="0" src="Earnings.png"></td>
-</tr>
-</table>
-<!-- *Above is Banner Code -->
 
-<!-- *Below is the Entry Form <div style="border: 3px solid rgb(201, 0, 1); overflow: hidden; margin: 0px auto; max-width: 640px;">-->
-<div style="border: 3px solid rgb(201, 0, 1); overflow: hidden; margin: 0px auto; max-width: 640px; background-color: white;">
-<!--<iframe scrolling="no" src="https://docs.google.com/forms/d/e/1FAIpQLScRzQH2sh_bSoJ-yLdxH9VmQSllrOVhyssJmzVtrqtC4tP9JQ/viewform?usp=pp_url&entry.434165808=Torrey+Pines&entry.1412193351=Group1" style="border: 0px none; margin-left: -60px; height: 1050px; margin-top: -110px; width: 600px;">
-</iframe>-->
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScRzQH2sh_bSoJ-yLdxH9VmQSllrOVhyssJmzVtrqtC4tP9JQ/viewform?embedded=true" width="640" height="1218" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+<body>
+
+<!-- HEADER -->
+<header><center>SCORE CARD ENTRY</center></header>
+  <!-- MENU BUTTON -->
+  <div class="menu-button" onclick="toggleMenu()">☰</div>
+
+  <!-- SLIDE MENU -->
+  <div id="menu" class="menu">
+    <a href="index.html">Home</a>
+    <a href="ScoreEntry.html">Score Entry</a>
+    <a href="ScoreCards.html">Score Cards</a>
+    <a href="Schedule.html">Schedule</a>
+    <a href="Leaderboard.html">Leaderboard</a>
+    <a href="Statistics.html">Statistics</a>
+    <a href="Earnings.html">Earnings</a>
+  </div>
+
+<div class="control-bar">
+  <div class="top-row">
+    <h3 id="courseHeader"></h3>
+    <select id="groupSelect"></select>
+  </div>
+
+  <div class="hole-nav">
+    <span class="arrow" onclick="prevHole()">◀</span>
+    <span class="hole-label">
+      Hole <span id="holeDisplay">1</span>
+    </span>
+    <span class="arrow" onclick="nextHole()">▶</span>
+  </div>
 </div>
-<!-- ****Above is the Entry Form -->
 
-<!-- ****Below is the Footer Code -->
-<table>
-<tr>
-<td>1</td>
-</tr>
-</table>
-<!-- ****Below is the Footer Code -->
-   </body>
+<input type="hidden" id="holeNumber" value="1">
+
+<!-- PLAYERS -->
+<div id="players"></div>
+
+<!-- toast -->
+<div id="toast" class="toast"></div>
+
+
+<button onclick="submitHole()">Submit Hole</button>
+
+<script src="scoreEntry.js"></script>
+<script src="menu.js"></script>
+</body>
 </html>
+

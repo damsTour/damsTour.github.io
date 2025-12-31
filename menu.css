@@ -1,0 +1,33 @@
+.menu-button {
+  position: fixed;
+  top: 14px;
+  left: 14px;
+  font-size: 28px;
+  color: #cfa23f;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  left: -260px;
+  width: 240px;
+  height: 100%;
+  background: #0b1f33;
+  padding-top: 60px;
+  transition: left 0.25s ease;
+  z-index: 1000;
+}
+
+.menu a {
+  display: block;
+  padding: 14px 20px;
+  color: #cfa23f;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.menu a:hover {
+  background: rgba(255,255,255,0.08);
+}
