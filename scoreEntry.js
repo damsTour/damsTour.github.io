@@ -31,6 +31,7 @@ function loadPlayers() {
       }));
 
       initGroups();
+      saveScoreEntryState();
       renderGroup();
     })
     .catch(err => console.error(err));
@@ -145,6 +146,8 @@ function nextHole() {
   h = h === 18 ? 1 : h + 1;
   document.getElementById("holeNumber").value = h;
   updateHoleDisplay();
+  saveScoreEntryState();
+
 }
 
 function prevHole() {
@@ -152,6 +155,8 @@ function prevHole() {
   h = h === 1 ? 18 : h - 1;
   document.getElementById("holeNumber").value = h;
   updateHoleDisplay();
+  updateHoleDisplay();
+  saveScoreEntryState();
 }
 
 
@@ -216,6 +221,25 @@ function showToast(msg, duration = 1200) {
   setTimeout(() => {
     toast.classList.remove("show");
   }, duration);
+}
+
+/* ---------- Save Group for when come back ---------- */
+function saveScoreEntryState() {
+  localStorage.setItem("lastGroup", currentGroup);
+  localStorage.setItem("lastHole", document.getElementById("holeNumber").value);
+}
+
+
+/* ---------- Keeps Track of the Group You are Working from ---------- */
+function restoreScoreEntryState() {
+  const savedGroup = localStorage.getItem("lastGroup");
+  const savedHole = localStorage.getItem("lastHole");
+
+  if (savedGroup) currentGroup = savedGroup;
+  if (savedHole) {
+    document.getElementById("holeNumber").value = savedHole;
+    updateHoleDisplay();
+  }
 }
 
 
@@ -286,6 +310,8 @@ function submitHole() {
   const next = hole === 18 ? 1 : hole + 1;
   document.getElementById("holeNumber").value = next;
   updateHoleDisplay();
+  saveScoreEntryState();
+
 
   console.log(`Submitted hole ${hole}`);
 }
@@ -310,6 +336,7 @@ document.addEventListener("change", function (e) {
 });
 
 
+
 /* 🔑 MAKE FUNCTIONS VISIBLE TO HTML */
 window.nextHole = nextHole;
 window.prevHole = prevHole;
@@ -318,6 +345,11 @@ window.submitHole = submitHole;
 
 
 /* ---------- INIT ---------- */
-document.addEventListener("DOMContentLoaded", loadPlayers);
+/* document.addEventListener("DOMContentLoaded", loadPlayers); */
+
+document.addEventListener("DOMContentLoaded", () => {
+  restoreScoreEntryState();
+  loadPlayers();
+});
 
 

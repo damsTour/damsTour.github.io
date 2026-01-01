@@ -5,7 +5,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="DAMS" />
-  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="menu.css" />
 <style>
 
@@ -117,12 +117,12 @@
 
 .scorecard-header .net {
   color: #cfa64a;
-  font-size: 17px;
+  font-size: 22px;
   text-align: right;
 }
 
 .scorecard-header .gross {
-  font-size: 16px;
+  font-size: 22px;
   text-align: left;
 }
 .container {
@@ -138,7 +138,7 @@
 
 #outCard h3,
 #inCard h3 {
-  padding-left: 12px;
+  padding-left: 4px;
 }
 
 tr.out-divider td {
@@ -147,7 +147,7 @@ tr.out-divider td {
 
 .scorecard-divider {
   height: 4px;
-  background: #cfa64a;   /* old gold */
+  background: #0f2a44;   /* same as header blue */
   margin: 10px 0;
   border-radius: 2px;
 }
@@ -156,35 +156,14 @@ tr.out-divider td {
   background: #fff;
 }
 
-.hcp-row td {
-  color: #cfa64a;          /* Old Gold */
-  font-weight: 700;
-}
-
 .total-row td {
-  font-family: 'Patrick Hand', cursive;
-  font-size: 18px;
-  letter-spacing: 0.5px;
+  font-weight: bold;
   background: #f0f0f0;
   border-top: 3px solid #0f2a44;
-  color: #222;
 }
-
 .total-row td {
   color: #333;
 }
-.total-row td:first-child {
-  font-size: 20px;
-}
-.player-name {
-  cursor: pointer;
-  text-decoration: underline;
-}
-
-.player-name:active {
-  opacity: 0.7;
-}
-
 
   </style>
 <head>
@@ -210,18 +189,20 @@ tr.out-divider td {
     <a href="Earnings.html">Earnings</a>
   </div>
 
-<select id="playerSelect" style="display:none;">
-  <option value="">-- Select --</option>
-  <option value="Player1">Bryeans</option>
-  <option value="Player2">Fiascone</option>
-  <option value="Player3">Holtz</option>
-  <option value="Player4">Lowery</option>
-  <option value="Player5">Lyons</option>
-  <option value="Player6">McCalpin</option>
-  <option value="Player7">Schwartz</option>
-  <option value="Player8">Wolf</option>
-</select>
-
+<div class="container">
+  <label for="playerSelect"><strong>Select Player:</strong></label><br />
+  <select id="playerSelect">
+    <option value="">-- Select --</option>
+    <option value="Player1">Bryeans</option>
+    <option value="Player2">Fiascone</option>
+    <option value="Player3">Holtz</option>
+    <option value="Player4">Lowery</option>
+    <option value="Player5">Lyons</option>
+    <option value="Player6">McCalpin</option>
+    <option value="Player7">Schwartz</option>
+    <option value="Player8">Wolf</option>
+  </select>
+</div>
 
 <div id="scoreCard">
   <div id="playerHeader"></div>
@@ -252,46 +233,14 @@ function fetchSheet(range) {
     });
 }
 
-
 /* ============== EVENT HANDLER ============== */
 
 document.getElementById("playerSelect").addEventListener("change", e => {
-  const select = e.target;
-  const player = select.value;
-  const range = `${player}!B59:L69`; 
-  // 🔐 Save state
-  localStorage.setItem("scoreCardIndex", select.selectedIndex);
+  const player = e.target.value;
   if (!player) return;
-  fetchSheet(`${player}!B59:L69`).then(renderScoreCard);
-});
 
-/*option 1
-document.addEventListener("DOMContentLoaded", () => {
-  const select = document.getElementById("playerSelect");
-  if (!select) return;
-
-  const savedIndex = localStorage.getItem("scoreCardIndex");
-
-  if (savedIndex !== null && select.options[savedIndex]) {
-    select.selectedIndex = Number(savedIndex);
-    select.dispatchEvent(new Event("change"));
-    }
-}); */
-
-/*option 2*/
-document.addEventListener("DOMContentLoaded", () => {
-  const select = document.getElementById("playerSelect");
-  if (!select) return;
-
-  const savedIndex = localStorage.getItem("scoreCardIndex");
-
-  if (savedIndex !== null && select.options[savedIndex]) {
-    select.selectedIndex = Number(savedIndex);
-  } else {
-    select.selectedIndex = 1; // fallback only if nothing saved
-  }
-
-  select.dispatchEvent(new Event("change"));
+  const range = `${player}!B59:L69`;
+  fetchSheet(range).then(renderScoreCard).catch(console.error);
 });
 
 function renderScoreCard(values) {
@@ -311,59 +260,42 @@ function renderIn(values) {
 }
 
 function buildTable(rows, label) {
-  const holesRow = rows[0];
-  const parRow   = rows[1];
-  const totalRow = rows[2]; // OUT or IN
-  const hcpRow   = rows[3];
-  const distRow  = rows[4];
+  const totalRow = rows[rows.length - 1];
+  const holeRows = rows.slice(0, -1);
 
   let html = `<h3>${label}</h3><table>`;
 
-  function renderRow(row, className) {
-    html += `<tr class="${className}">`;
+  // Hole rows (normal)
+  holeRows.forEach(row => {
+    html += "<tr class='hole-row'>";
     row.forEach(cell => {
       html += `<td>${cell}</td>`;
     });
     html += "</tr>";
-}
+  });
 
-
-  // Render rows in the requested order
-   renderRow(holesRow, "hole-row");
-   renderRow(distRow, "hole-row");
-   renderRow(hcpRow, "hcp-row");
-   renderRow(parRow, "hole-row");
-  // Total row always last
-  renderRow(totalRow, "total-row");
+  // Total row (OUT / IN)
+  html += "<tr class='total-row'>";
+  totalRow.forEach(cell => {
+    html += `<td>${cell}</td>`;
+  });
+  html += "</tr>";
 
   html += "</table>";
   return html;
-}
-
-function cyclePlayer() {
-  const select = document.getElementById("playerSelect");
-  let index = select.selectedIndex + 1;
-
-  if (index >= select.options.length) index = 1; // skip "-- Select --"
-  
-  select.selectedIndex = index;
-  select.dispatchEvent(new Event("change"));
 }
 
 
 function renderHeader(values) {
   const header = document.getElementById("playerHeader");
   header.innerHTML = `
-      <div class="scorecard-header">
-      <div class="gross player-name" onclick="cyclePlayer()">
-  ${values[0][0]}
-      </div>
-      <div class="gross">HCP: ${values[0][5]}</div>
-      <div class="net">TOTAL: ${values[0][10]}</div>
-      <div class="gross">${values[0][1]}</div>
-      <div class="gross">GROSS: ${values[0][9]}</div>
+    <div class="scorecard-header">
+      <div class="gross">${values[0][0]}</div>
+      <div class="gross">${values[0][1]} : ${values[0][2]}</div>
       <div class="net">NET: ${values[0][7]}</div>
-      <div class="gross">${values[0][2]}</div>
+      <div class="gross">HCP: ${values[0][5]}</div>
+      <div class="gross">GROSS: ${values[0][9]}</div>
+      <div class="net">TOTAL: ${values[0][10]}</div>
     </div>
   `;
 }
