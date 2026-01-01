@@ -4,11 +4,8 @@
   <meta charset="UTF-8" />
   <title>DAMS</title>
 
-  <!-- iPhone Home Screen -->
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="apple-mobile-web-app-title" content="DAMS" />
 
   <link rel="stylesheet" href="menu.css" />
 
@@ -16,7 +13,6 @@
     :root {
       --sapphire: #0f2a44;
       --old-gold: #cfa23f;
-      --white: #ffffff;
     }
 
     body {
@@ -24,68 +20,94 @@
       background: var(--sapphire);
       color: var(--old-gold);
       font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
 
     .home-container {
-      text-align: center;
       padding: 24px;
+      text-align: center;
     }
 
-    .duck {
-      max-width: 260px;
-      width: 70vw;
+    h3 {
+      margin-bottom: 16px;
+    }
+
+    .schedule-img {
+      width: 100%;
+      max-width: 1100px;
       height: auto;
-      margin-bottom: 20px;
+      cursor: zoom-in;
+      border-radius: 4px;
     }
 
-    .title {
-      font-size: clamp(48px, 12vw, 96px);
-      font-weight: 800;
-      letter-spacing: 2px;
-      margin: 0;
+    /* MODAL */
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.9);
+      z-index: 2000;
+      padding: 12px;
     }
 
-    .subtitle {
-      margin-top: 12px;
-      font-size: 16px;
-      letter-spacing: 1px;
-      opacity: 0.9;
-    }
+    .modal img {
+      width: 100%;
+      height: auto;
+      margin: auto;
+      display: block;
+      cursor: zoom-out;
+      touch-action: manipulation;
+}
 
-      .since {
-       font-family: "Georgia", serif;
-       font-style: italic;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- MENU BUTTON -->
-  <div class="menu-button" onclick="toggleMenu()">☰</div>
+<!-- MENU -->
+<div class="menu-button" onclick="toggleMenu()">☰</div>
 
-  <!-- SLIDE MENU -->
-  <div id="menu" class="menu">
-    <a href="index.html">Home</a>
-    <a href="ScoreEntry.html">Score Entry</a>
-    <a href="ScoreCards.html">Score Cards</a>
-    <a href="Schedule.html">Schedule</a>
-    <a href="Leaderboard.html">Leaderboard</a>
-    <a href="Statistics.html">Statistics</a>
-    <a href="Earnings.html">Earnings</a>
-  </div>
+<div id="menu" class="menu">
+  <a href="index.html">Home</a>
+  <a href="ScoreEntry.html">Score Entry</a>
+  <a href="ScoreCards.html">Score Cards</a>
+  <a href="Schedule.html">Schedule</a>
+  <a href="Leaderboard.html">Leaderboard</a>
+  <a href="Statistics.html">Statistics</a>
+  <a href="Earnings.html">Earnings</a>
+</div>
 
-  <!-- HERO -->
-  <div class="home-container">
-	  
-	<H3>Schedules and Handicaps</H3>
-    <img src="images/Schedule.png" alt="DAMS Duck" class="duck" />
-  </div>
+<!-- CONTENT -->
+<div class="home-container">
+  <h3>Schedules and Handicaps</h3>
 
-  <script src="menu.js"></script>
+  <!-- RESPONSIVE IMAGE -->
+  <picture onclick="openModal()">
+    <source media="(max-width: 768px)" srcset="images\schedule-mobile.png">
+    <img src="images\schedule-desktop.png"
+         alt="2025 Schedule & Pairings"
+         class="schedule-img">
+  </picture>
+</div>
+
+<!-- MODAL -->
+<div id="imgModal" class="modal" onclick="closeModal()">
+  <img src="images\schedule-desktop.png" alt="Expanded Schedule">
+</div>
+
+<!-- SCRIPTS -->
+<script src="menu.js"></script>
+
+<script>
+  function openModal() {
+    document.getElementById("imgModal").style.display = "block";
+  }
+
+  function closeModal() {
+    document.getElementById("imgModal").style.display = "none";
+  }
+</script>
+
 </body>
 </html>
+
